@@ -1,7 +1,7 @@
 import subjectList from "../src/data/sessions.json";
-import { v4 as uuidv4 } from "uuid";
-import SubjectField from "./components/SubjectField";
 import { useState } from "react";
+import Header from "./components/Header";
+import SubjectWrapper from "./components/SubjectWrapper";
 
 const initialSubjects = subjectList;
 
@@ -36,17 +36,11 @@ function App() {
 
   return (
     <>
-      <h1>SuperCoach</h1>
-      <h2>Track your achievements</h2>
-      <h3>Your overall progress</h3>
-      <p>You're doing great!</p>
-      <progress min={0} max={sessionCountGlobal} value={checkedCountGlobal} />
-      {Object.keys(subjects).map((title) => (
-        <div key={uuidv4()}>
-          <h3>{title.toUpperCase()}</h3>
-          <SubjectField subjects={subjects[title]} handleClick={handleClick} />
-        </div>
-      ))}
+      <Header
+        sessionCountGlobal={sessionCountGlobal}
+        checkedCountGlobal={checkedCountGlobal}
+      />
+      <SubjectWrapper subjects={subjects} handleClick={handleClick} />
     </>
   );
 }
