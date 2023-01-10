@@ -1,14 +1,17 @@
-# New Project
+# Progress App (Working Title) Project
 
-This project was created with Create React App.
+> This project was created with Create React App.
 
 ## Development
 
 ### CodeSandbox
 
-Select the "Browser" tab to view this project.
+For prototyping purposes, you can open this project with CodeSandbox.
+(Until it has been migrated to Next.js.)
 
 ### Local development
+
+Feel free to clone this repository locally.
 
 To run project commands locally, you need to install the dependencies using `npm i` first.
 
