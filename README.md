@@ -1,15 +1,21 @@
-# Progress App (Working Title) Project
+# Progress App (Working Title) Project 📈❤️
 
 > This project was created with Create React App.
 
-## Development
+## Features ✨
 
-### CodeSandbox
+- Session Overview
+- Check/Uncheck Sessions
+- Progress tracking
+
+## Development 🤖
+
+### CodeSandbox 👾
 
 For prototyping purposes, you can open this project with CodeSandbox.
 (Until it has been migrated to Next.js.)
 
-### Local development
+### Local development 💾
 
 Feel free to clone this repository locally.
 
