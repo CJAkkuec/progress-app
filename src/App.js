@@ -1,12 +1,14 @@
 import subjectList from "../src/data/sessions.json";
-import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 import Header from "./components/Header";
 import SubjectWrapper from "./components/SubjectWrapper";
 
 const initialSubjects = subjectList;
 
 function App() {
-  const [subjects, setSubjects] = useState(initialSubjects);
+  const [subjects, setSubjects] = useLocalStorageState("progress", {
+    defaultValue: initialSubjects,
+  });
 
   const sessionCountGlobal = Object.values(subjects)
     .map((array) => array.length)
