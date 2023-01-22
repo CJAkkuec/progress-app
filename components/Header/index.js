@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Chances from "../Chances";
 import CustomProgress from "../CustomProgress";
 
 const StyledHeader = styled.header`
@@ -43,43 +44,12 @@ const Button = styled.button`
   border-radius: 1rem;
 `;
 
-const ButtonClose = styled.button`
-  position: absolute;
-  right: 2rem;
-  bottom: 2rem;
-  padding: 3rem 1rem;
-  border: none;
-  background-color: var(--neon);
-  border-radius: 1rem;
-`;
-
-const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  position: absolute;
-  top: 100px;
-  min-height: 400px;
-  max-height: 600px;
-  width: 90%;
-  background-color: white;
-  padding: 0.5rem;
-  margin: 1rem;
-  border-radius: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  z-index: 1;
-`;
-
 export default function Header({
   sessionCountGlobal,
   checkedCountGlobal,
   uncheckedGlobal,
 }) {
   const [seeUnchecked, setSeeUnchecked] = useState(false);
-
-  const topics = Object.keys(uncheckedGlobal);
 
   return (
     <>
@@ -99,21 +69,10 @@ export default function Header({
         </div>
       </StyledHeader>
       {seeUnchecked && (
-        <Section>
-          <h3>that are your chances</h3>
-          {topics.map((topic) => {
-            return (
-              <ul>
-                {uncheckedGlobal[topic].map((session) => (
-                  <li>{session.name}</li>
-                ))}
-              </ul>
-            );
-          })}
-          <ButtonClose onClick={() => setSeeUnchecked(false)}>
-            CLOSE
-          </ButtonClose>
-        </Section>
+        <Chances
+          uncheckedGlobal={uncheckedGlobal}
+          onClose={() => setSeeUnchecked(false)}
+        />
       )}
     </>
   );
