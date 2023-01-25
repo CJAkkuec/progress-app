@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Chances from "../Chances";
+import Training from "../Training";
 import CustomProgress from "../CustomProgress";
 
 const StyledHeader = styled.header`
@@ -36,12 +36,22 @@ const StyledText = styled.p`
 
 const Button = styled.button`
   position: absolute;
-  right: 2rem;
-  top: 3rem;
-  padding: 3rem 1rem;
+  right: 1rem;
+  top: 2.5rem;
+  padding: 1rem;
   border: none;
+  font-size: 1rem;
   background-color: var(--neon);
-  border-radius: 1rem;
+  color: var(--blue);
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px;
+
+  &:hover {
+    color: #fff;
+  }
+
+  &:active {
+    box-shadow: inset rgba(0, 0, 0, 0.2) 3px 3px 3px;
+  }
 `;
 
 export default function Header({
@@ -54,7 +64,7 @@ export default function Header({
   return (
     <>
       <StyledHeader>
-        <Button onClick={() => setSeeUnchecked(!seeUnchecked)}>chances</Button>
+        <Button onClick={() => setSeeUnchecked(!seeUnchecked)}>Training</Button>
         <div>
           <StyledHeadline>SuperCoach</StyledHeadline>
           <StyledSubline>Track your achievements!</StyledSubline>
@@ -69,7 +79,7 @@ export default function Header({
         </div>
       </StyledHeader>
       {seeUnchecked && (
-        <Chances
+        <Training
           uncheckedGlobal={uncheckedGlobal}
           onClose={() => setSeeUnchecked(false)}
         />
