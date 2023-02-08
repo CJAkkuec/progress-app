@@ -18,6 +18,16 @@ function App() {
     .flatMap((sessions) => sessions.map((session) => session.checked))
     .filter((value) => value === true).length;
 
+  const topics = Object.keys(subjects);
+  const uncheckedGlobalArray = topics.map((topic) => {
+    return subjects[topic].filter((session) => session.checked === false);
+  });
+
+  const uncheckedGlobal = {};
+  for (const [index, value] of topics.entries()) {
+    uncheckedGlobal[value] = uncheckedGlobalArray[index];
+  }
+
   function handleClick(id) {
     setSubjects((prevSubjects) => {
       const newSubjects = { ...prevSubjects };
@@ -41,6 +51,7 @@ function App() {
       <Header
         sessionCountGlobal={sessionCountGlobal}
         checkedCountGlobal={checkedCountGlobal}
+        uncheckedGlobal={uncheckedGlobal}
       />
       <SubjectWrapper subjects={subjects} handleClick={handleClick} />
     </>
